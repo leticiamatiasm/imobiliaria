@@ -25,22 +25,33 @@
 // export default App;
 
 import './App.css';
-import Home from './components/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter, Routes, Link, Route} from 'react-router-dom';
-import {Nav} from 'react-bootstrap';
+import NavigationBar from './components/TopBar.js';
+import QueryScreen from './screens/QueryScreen';
+import Home from './screens/Home';
+import Login from './screens/Login';
+import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 
-function App(){
-    return(
+
+function App() {
+    return (
         <div className="App">
+            {/* <NavigationBar /> */}
             <BrowserRouter>
-                <Nav variant='tabs'>
-                    <Nav.Link as={Link} to="/">Página Inicial</Nav.Link>
-                </Nav>
-            
-            <Routes>
-                <Route path="/" exact={true} element={<Home/>}> </Route>
-            </Routes>
+                <Navbar bg="dark" variant="dark">
+                    <Container>
+                        <Navbar.Brand href="#home" as={Link} to="/">Nome da empresa</Navbar.Brand>
+                        <Nav className="me-auto" style={{ position: 'absolute', top: '50%', right: '15%', transform: 'translateY(-50%)' }}>
+                            <Nav.Link href="#pricing" as={Link} to="/Login">Fazer login</Nav.Link>
+                        </Nav>
+                    </Container>
+                </Navbar>
+                <Routes>
+                    <Route path="/" exact={true} element={<Home />}> </Route>
+                    <Route path="/Login" element={<Login />}> </Route>
+                    <Route path="/QueryScreen" element={<QueryScreen />}> </Route>
+                </Routes>
             </BrowserRouter>
         </div>
     )

@@ -1,6 +1,6 @@
 import './Home.css';
 import React, { useState } from 'react';
-import DatabaseTable from './DatabaseTable';
+import DatabaseTable from '../components/DatabaseTable';
 
 const backEndUrl = "http://localhost:5000";
 
@@ -8,7 +8,7 @@ function Home() {
     const [state, setState] = useState();
     const getTest = () => {
         try {
-            fetch(`${backEndUrl}/query/1`)
+            fetch(`${backEndUrl}/query`)
                 .then(resposta => resposta.json())
                 .then(dados => {
                     setState({ value: dados })
