@@ -1,0 +1,15 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 80%;
+    table-layout: fixed;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
